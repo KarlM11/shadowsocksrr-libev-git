@@ -1,0 +1,5 @@
+# Make
+pkg/
+src/
+shadowsocksr-libev/
+shadowsocksrr-libev-git-*.pkg.tar.xz

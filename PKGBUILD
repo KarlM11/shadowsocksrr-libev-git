@@ -1,5 +1,5 @@
 pkgname=shadowsocksrr-libev-git
-pkgver=2.4.1.366.g035d4b9-1
+pkgver=2.4.1.366.g035d4b9
 pkgrel=1
 pkgdesc='A fork of ShadowsocksR. May different from original version.'
 arch=('i686' 'x86_64')
@@ -9,12 +9,12 @@ depends=('libcap' 'mbedtls' 'libev' 'libsodium'
          'udns' 'pcre' 'libcorkipset' 'libbloom')
 makedepends=('git' 'gcc' 'autoconf' 'libtool' 'automake' 'make' 'zlib' 'openssl' 'asciidoc' 'xmlto')
 options=('docs' '!strip')
-conflicts=('shadowsocksr-libev')
+conflicts=('shadowsocksr-libev' 'shadowsocks-libev')
 source=('git+https://github.com/shadowsocksrr/shadowsocksr-libev.git'
         shadowsocksr-libev-redir@.service
         shadowsocksr-libev-server@.service
         shadowsocksr-libev-tunnel@.service
-        shadowsocksr-libev@.service
+        shadowsocksr-libev-local@.service
         )
 sha1sums=('SKIP'
           'SKIP'
@@ -25,10 +25,10 @@ sha1sums=('SKIP'
 
 _gitname='shadowsocksr-libev'
 
-pkgver() {
-  cd "$_gitname"
-  git describe --tags | sed 's/-/./g'
-}
+#pkgver() {
+#  cd "$_gitname"
+#  git describe --tags | sed 's/-/./g'
+#}
 
 build() {
   cd "$_gitname"
@@ -39,12 +39,9 @@ build() {
 package() {
   cd "$srcdir/$_gitname"
   make DESTDIR="$pkgdir/" install
-  install -Dm644 "$srcdir/shadowsocks-libev-redir@.service" "$pkgdir/usr/lib/systemd/system/shadowsocks-libev-redir@.service"
-  install -Dm644 "$srcdir/shadowsocks-libev-server@.service" "$pkgdir/usr/lib/systemd/system/shadowsocks-libev-server@.service"
-  install -Dm644 "$srcdir/shadowsocks-libev-tunnel@.service" "$pkgdir/usr/lib/systemd/system/shadowsocks-libev-tunnel@.service"
-  install -Dm644 "$srcdir/shadowsocks-libev@.service" "$pkgdir/usr/lib/systemd/system/shadowsocks-libev@.service"
+  install -Dm644 "$srcdir/shadowsocksr-libev-redir@.service" "$pkgdir/usr/lib/systemd/system/shadowsocksr-libev-redir@.service"
+  install -Dm644 "$srcdir/shadowsocksr-libev-server@.service" "$pkgdir/usr/lib/systemd/system/shadowsocksr-libev-server@.service"
+  install -Dm644 "$srcdir/shadowsocksr-libev-tunnel@.service" "$pkgdir/usr/lib/systemd/system/shadowsocksr-libev-tunnel@.service"
+  install -Dm644 "$srcdir/shadowsocksr-libev-local@.service" "$pkgdir/usr/lib/systemd/system/shadowsocksr-libev@.service"
 }
-
-
-
 
