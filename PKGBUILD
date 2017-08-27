@@ -42,6 +42,6 @@ package() {
   install -Dm644 "$srcdir/shadowsocksr-libev-redir@.service" "$pkgdir/usr/lib/systemd/system/shadowsocksr-libev-redir@.service"
   install -Dm644 "$srcdir/shadowsocksr-libev-server@.service" "$pkgdir/usr/lib/systemd/system/shadowsocksr-libev-server@.service"
   install -Dm644 "$srcdir/shadowsocksr-libev-tunnel@.service" "$pkgdir/usr/lib/systemd/system/shadowsocksr-libev-tunnel@.service"
-  install -Dm644 "$srcdir/shadowsocksr-libev-local@.service" "$pkgdir/usr/lib/systemd/system/shadowsocksr-libev@.service"
+  install -Dm644 "$srcdir/shadowsocksr-libev-local@.service" "$pkgdir/usr/lib/systemd/system/shadowsocksr-libev-local@.service"
 }
 
