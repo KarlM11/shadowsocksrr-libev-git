@@ -15,8 +15,10 @@ source=('git+https://github.com/shadowsocksrr/shadowsocksr-libev.git'
         shadowsocksr-libev-server@.service
         shadowsocksr-libev-tunnel@.service
         shadowsocksr-libev-local@.service
+        config.json
         )
 sha1sums=('SKIP'
+          'SKIP'
           'SKIP'
           'SKIP'
           'SKIP'
@@ -43,5 +45,6 @@ package() {
   install -Dm644 "$srcdir/shadowsocksr-libev-server@.service" "$pkgdir/usr/lib/systemd/system/shadowsocksr-libev-server@.service"
   install -Dm644 "$srcdir/shadowsocksr-libev-tunnel@.service" "$pkgdir/usr/lib/systemd/system/shadowsocksr-libev-tunnel@.service"
   install -Dm644 "$srcdir/shadowsocksr-libev-local@.service" "$pkgdir/usr/lib/systemd/system/shadowsocksr-libev-local@.service"
+  install -Dm644 "$srcdir/config.json" "$pkgdir/etc/shadowsocksr/config.json"
 }
 

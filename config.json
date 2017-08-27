@@ -1,0 +1,17 @@
+{
+    "server": "45.35.119.145",
+    "server_ipv6": "::",
+    "server_port": 443,
+    "local_address": "127.0.0.1",
+    "local_port": 1081,
+    "password": "VH19bTdfR3I",
+    "timeout": 120,
+    "udp_timeout": 60,
+    "method": "none",
+    "protocol": "auth_chain_a",
+    "protocol_param": "",
+    "obfs": "tls1.2_ticket_auth",
+    "obfs_param": "bing.com",
+    "fast_open": false,
+    "workers": 1
+}
